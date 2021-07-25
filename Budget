@@ -1,0 +1,67 @@
+using System;
+
+namespace DayOfWeek
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string TypeFlowers = Console.ReadLine();
+            double CountFlowers = double.Parse(Console.ReadLine());
+            double Budget = double.Parse(Console.ReadLine());
+            double discount = 1;
+            double price = 0;
+
+            if (TypeFlowers == "Roses")
+            {
+                price = 5.00;
+                if (CountFlowers > 80)
+                {
+                    discount = 0.90;
+                }
+            }
+            else if (TypeFlowers == "Dahlias")
+            {
+                price = 3.80;
+                if (CountFlowers > 90)
+                {
+                    discount = 0.85;
+                }
+            }
+            else if (TypeFlowers == "Tulips")
+            {
+                price = 2.80;
+                if (CountFlowers > 80)
+                {
+                    discount = 0.85;
+                }
+            }
+            else if (TypeFlowers == "Narcissus")
+            {
+                price = 3.00;
+                if (CountFlowers < 120)
+                {
+                    discount = 1.15;
+                }
+            }
+            else if (TypeFlowers == "Gladiolus")
+            {
+                price = 2.50;
+                if (CountFlowers < 80)
+                {
+                    discount = 1.20;
+                }
+            }
+            double Total = CountFlowers * price * discount;
+            if (Total > Budget)
+            {
+                Console.WriteLine($"Not enough money, you need {(Total - Budget):F2} leva more.");
+            }
+            else
+            {
+                Console.WriteLine($"Hey, you have a great garden with {CountFlowers} {TypeFlowers} and {(Budget - Total):F2} leva left.");
+            }
+
+        }
+    }
+}
